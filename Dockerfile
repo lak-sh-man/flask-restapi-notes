@@ -1,4 +1,5 @@
-# Uses Python 3.9 base image
+# Uses Python 3.9 base image (this is the base image for this docker file, but deep down there will be the real base image that includes all the files that make up the operating system 
+#                             so the term "base image" is relative to the docker file)
 FROM python:3.9     
 # Exposes port 5000 (for Flask app)
 EXPOSE 5000              
