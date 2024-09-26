@@ -32,6 +32,30 @@ def create_store():
     return store
 
 
+@app.get("/store/<string:store_id>")
+def get_store(store_id):
+    try:
+        # Here you might also want to add the items in this store
+        # We'll do that later on in the course
+        return stores[store_id]
+    except KeyError:
+        abort(404, message="Store not found.")
+
+
+@app.delete("/store/<string:store_id>")
+def delete_store(store_id):
+    try:
+        del stores[store_id]
+        return {"message": "Store deleted."}
+    except KeyError:
+        abort(404, message="Store not found.")
+
+
+@app.get("/item")
+def get_all_items():
+    return {"items": list(items.values())}
+
+
 @app.post("/item")
 def create_item():
     item_data = request.get_json()
@@ -61,27 +85,12 @@ def create_item():
     return item
 
 
-@app.get("/store/<string:store_id>")
-def get_store(store_id):
-    try:
-        # Here you might also want to add the items in this store
-        # We'll do that later on in the course
-        return stores[store_id]
-    except KeyError:
-        abort(404, message="Store not found.")
-
-
 @app.get("/item/<string:item_id>")
 def get_item(item_id):
     try:
         return items[item_id]
     except KeyError:
         abort(404, message="Item not found.")
-
-
-@app.get("/item")
-def get_all_items():
-    return {"items": list(items.values())}
 
 
 @app.delete("/item/<string:item_id>")
@@ -91,16 +100,6 @@ def delete_item(item_id):
         return {"message": "Item deleted."}
     except KeyError:
         abort(404, message="Item not found.")
-
-
-@app.delete("/store/<string:store_id>")
-def delete_store(store_id):
-    try:
-        del stores[store_id]
-        return {"message": "Store deleted."}
-    except KeyError:
-        abort(404, message="Store not found.")
-
 
 
 @app.put("/item/<string:item_id>")
