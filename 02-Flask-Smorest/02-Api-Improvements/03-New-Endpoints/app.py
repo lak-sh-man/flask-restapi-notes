@@ -122,3 +122,8 @@ def update_item(item_id):
         return item
     except KeyError:
         abort(404, message="Item not found.")
+
+
+if __name__ == '__main__':
+    # app.run(debug=True, host='0.0.0.0', port=8000) 
+    app.run(debug=True) 
