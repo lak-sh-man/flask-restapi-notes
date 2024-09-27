@@ -11,6 +11,7 @@ app = Flask(__name__)
 @app.get("/store")
 def get_stores():
     return {"stores": list(stores.values())}
+    # return {"stores": stores}
 
 
 @app.post("/store")
@@ -54,6 +55,7 @@ def delete_store(store_id):
 @app.get("/item")
 def get_all_items():
     return {"items": list(items.values())}
+    # return {"items": items}
 
 
 @app.post("/item")
