@@ -32,7 +32,9 @@ class StoreList(MethodView):
         return {"stores": list(stores.values())}
 
     @blp.arguments(StoreSchema)
-    def post(cls, store_data):
+    def post(cls, store_data):# here we mention the store_data as a parameter because, shema validates the json data 
+                              # then that validated json data can be passed automatically inside the post function by the schema behind the scene
+                              # that can be only achieved by passing it as a parameter (we didn't do this before)
         for store in stores.values():
             if store_data["name"] == store["name"]:
                 abort(400, message=f"Store already exists.")

@@ -42,7 +42,9 @@ class ItemList(MethodView):
         return {"items": list(items.values())}
 
     @blp.arguments(ItemSchema)
-    def post(self, item_data):
+    def post(self, item_data): # here we mention the item_data as a parameter because, shema validates the json data 
+                               # then that validated json data can be passed automatically inside the post function by the schema behind the scene
+                               # that can be only achieved by passing it as a parameter (we didn't do this before)
         for item in items.values():
             if (
                 item_data["name"] == item["name"]
