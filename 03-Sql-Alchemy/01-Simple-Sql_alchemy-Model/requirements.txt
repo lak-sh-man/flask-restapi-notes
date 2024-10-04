@@ -11,3 +11,5 @@ zipp==3.19.2
 flask-smorest==0.44.0
 python-dotenv==1.0.1
 marshmallow==3.22.0
+SQLAlchemy==2.0.35
+Flask-SQLAlchemy==3.1.1
