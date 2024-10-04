@@ -10,6 +10,7 @@ blp = Blueprint("Stores", __name__, description="Operations on stores")
 
 @blp.route("/store/<string:store_id>")
 class Store(MethodView):
+    @blp.response(200, StoreSchema)
     def get(cls, store_id):
         try:
             # You presumably would want to include the store's items here too
@@ -28,10 +29,12 @@ class Store(MethodView):
 
 @blp.route("/store")
 class StoreList(MethodView):
+    @blp.response(200, StoreSchema(many=True))
     def get(cls):
-        return {"stores": list(stores.values())}
+        return stores.values()
 
     @blp.arguments(StoreSchema)
+    @blp.response(201, StoreSchema)
     def post(cls, store_data):# here we mention the store_data as a parameter because, shema validates the json data 
                               # then that validated json data can be passed automatically inside the post function by the schema behind the scene
                               # that can be only achieved by passing it as a parameter (we didn't do this before)
