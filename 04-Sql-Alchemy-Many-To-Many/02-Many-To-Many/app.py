@@ -33,3 +33,7 @@ def create_app(db_url=None):
     api.register_blueprint(TagBlueprint)
 
     return app
+
+if __name__ == '__main__':
+    app = create_app()  # Create the app instance
+    app.run(debug=True, host='0.0.0.0')  # Start the app
