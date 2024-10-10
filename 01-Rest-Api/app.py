@@ -21,6 +21,15 @@ def get_stores():
 
 @app.post("/store")
 def create_store():
+    """ This API block expects a dictionary and a key of "name" inside of it exactly.
+        If there are no data sent in request body or no key under "name" is available in the dictionary, then unintentional error occurs. 
+        To avoid this, validations has to be done with the incomming data to check whether the required data are present or not. 
+        If not present then we have to return an error response with the status code to make it professional. 
+        Lets say if the data is not even sent in request body then an error response of msg "No data sent" along with a status code should be returned. 
+        If data is sent but the data is not in the expecting way that the API block expects, then an error response of msg "Unexpected data sent" along with a status code should be returned.
+        For any incomming data VALIDATION is must to be done in API 
+        For any API, customized ERROR RESPONSE is a must to be done to avoid unintentional error occurences (example: POST)
+    """
     request_data = request.get_json()
     # print(request_data)
     new_store = {"name": request_data["name"], "items": []}
