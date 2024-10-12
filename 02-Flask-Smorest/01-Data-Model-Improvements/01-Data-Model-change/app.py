@@ -12,7 +12,7 @@ def get_stores():
     # return {"stores": list(stores.values())}
     return stores
 
-
+ 
 @app.post("/store")
 def create_store():
     store_data = request.get_json()
