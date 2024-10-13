@@ -29,7 +29,8 @@ class Store(MethodView):
 @blp.route("/store")
 class StoreList(MethodView):
     def get(self):
-        return {"stores": list(stores.values())}
+        # return {"stores": list(stores.values())}
+        return stores
 
     def post(self):
         store_data = request.get_json()
@@ -45,5 +46,5 @@ class StoreList(MethodView):
         store_id = uuid.uuid4().hex
         store = {**store_data, "id": store_id}
         stores[store_id] = store
-
-        return store
+        # return store
+        return stores

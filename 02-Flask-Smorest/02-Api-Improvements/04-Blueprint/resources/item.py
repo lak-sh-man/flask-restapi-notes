@@ -47,7 +47,8 @@ class Item(MethodView):
 @blp.route("/item")
 class ItemList(MethodView):
     def get(self):
-        return {"items": list(items.values())}
+        # return {"items": list(items.values())}
+        return items
 
     def post(self):
         item_data = request.get_json()
@@ -74,4 +75,5 @@ class ItemList(MethodView):
         item = {**item_data, "id": item_id}
         items[item_id] = item
 
-        return item
+        # return item
+        return items
