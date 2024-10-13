@@ -10,8 +10,8 @@ app = Flask(__name__)
 
 @app.get("/store")
 def get_stores():
-    return {"stores": list(stores.values())}
-    # return {"stores": stores}
+    # return {"stores": list(stores.values())}
+    return stores
 
 
 @app.post("/store")
@@ -29,8 +29,8 @@ def create_store():
     store_id = uuid.uuid4().hex
     store = {**store_data, "id": store_id}
     stores[store_id] = store
-
-    return store
+    # return store
+    return stores
 
 
 @app.get("/store/<string:store_id>")
@@ -54,8 +54,8 @@ def delete_store(store_id):
 
 @app.get("/item")
 def get_all_items():
-    return {"items": list(items.values())}
-    # return {"items": items}
+    # return {"items": list(items.values())}
+    return items
 
 
 @app.post("/item")
@@ -83,8 +83,9 @@ def create_item():
     item_id = uuid.uuid4().hex
     item = {**item_data, "id": item_id}
     items[item_id] = item
-
-    return item
+    
+    # return item
+    return items
 
 
 @app.get("/item/<string:item_id>")
