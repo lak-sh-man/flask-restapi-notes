@@ -39,7 +39,8 @@ class Item(MethodView):
 @blp.route("/item")
 class ItemList(MethodView):
     def get(self):
-        return {"items": list(items.values())}
+        # return {"items": list(items.values())}
+        return items
 
     @blp.arguments(ItemSchema)
     def post(self, item_data): # here we mention the item_data as a parameter because, shema validates the json data 
@@ -56,4 +57,5 @@ class ItemList(MethodView):
         item = {**item_data, "id": item_id}
         items[item_id] = item
 
-        return item
+        # return item
+        return items

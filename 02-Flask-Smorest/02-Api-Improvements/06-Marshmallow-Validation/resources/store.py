@@ -10,7 +10,7 @@ blp = Blueprint("Stores", __name__, description="Operations on stores")
 
 @blp.route("/store/<string:store_id>")
 class Store(MethodView):
-    def get(cls, store_id):
+    def get(self, store_id):
         try:
             # You presumably would want to include the store's items here too
             # More on that when we look at databases
@@ -18,7 +18,7 @@ class Store(MethodView):
         except KeyError:
             abort(404, message="Store not found.")
 
-    def delete(cls, store_id):
+    def delete(self, store_id):
         try:
             del stores[store_id]
             return {"message": "Store deleted."}
@@ -28,11 +28,12 @@ class Store(MethodView):
 
 @blp.route("/store")
 class StoreList(MethodView):
-    def get(cls):
-        return {"stores": list(stores.values())}
+    def get(self):
+        # return {"stores": list(stores.values())}
+        return stores
 
     @blp.arguments(StoreSchema)
-    def post(cls, store_data):# here we mention the store_data as a parameter because, shema validates the json data 
+    def post(self, store_data):# here we mention the store_data as a parameter because, shema validates the json data 
                               # then that validated json data can be passed automatically inside the post function by the schema behind the scene
                               # that can be only achieved by passing it as a parameter (we didn't do this before)
         for store in stores.values():
@@ -43,4 +44,5 @@ class StoreList(MethodView):
         store = {**store_data, "id": store_id}
         stores[store_id] = store
 
-        return store
+        # return {"stores": list(stores.values())}
+        return stores
