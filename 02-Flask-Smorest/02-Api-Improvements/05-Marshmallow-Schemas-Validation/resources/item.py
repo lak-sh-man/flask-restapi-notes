@@ -25,6 +25,7 @@ class Item(MethodView):
 
     @blp.arguments(ItemUpdateSchema)
     def put(self, item_data, item_id):
+                                      # Here no validation done to check when already existing data is updated again and again or not
         try:
             item = items[item_id]
 
@@ -46,6 +47,8 @@ class ItemList(MethodView):
     def post(self, item_data): # here we mention the item_data as a parameter because, shema validates the json data 
                                # then that validated json data can be passed automatically inside the post function by the schema behind the scene
                                # that can be only achieved by passing it as a parameter (we didn't do this before)
+                               
+                               # Here validation is done to check when already existing data is posted again and again or not
         for item in items.values():
             if (
                 item_data["name"] == item["name"]
