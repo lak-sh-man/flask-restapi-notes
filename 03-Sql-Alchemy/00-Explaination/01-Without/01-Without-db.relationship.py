@@ -28,9 +28,10 @@ class ItemModel(db.Model):
     store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
 
 
-    def __init__(self,name,price):
+    def __init__(self,name,price,store_id):
         self.name = name
         self.price = price
+        self.store_id = store_id
 
 
 with app.app_context():
