@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "c261e342-f7db-4a76-be4a-2976957192fb",
-		"name": "06-Marshmallow-Validation",
+		"name": "05-Marshmallow-Schemas-Validation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28705244"
 	},
