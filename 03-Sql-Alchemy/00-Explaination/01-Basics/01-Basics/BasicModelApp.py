@@ -1,7 +1,7 @@
 # Full docs: http://docs.sqlalchemy.org/en/latest/core/types.html
 # class indicates table names 
 # class attributes indicates column names 
-# object indicates row wise contents 
+# each object Instantiation indicates row wise contents 
 
 import os
 from flask import Flask
@@ -40,5 +40,5 @@ class Puppy(db.Model):
 
 with app.app_context():
     # this line only creates an empty puppy table, with column title using class attributes in it
-    # first db.create_all() should be done, then only object instanciation should be done
+    # first db.create_all() should be done, then only object Instantiation should be done
     db.create_all()  
