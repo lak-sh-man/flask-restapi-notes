@@ -12,6 +12,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
 # Connects our Flask App to our Database
+# this line creates the data.sqlite file
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -36,3 +37,8 @@ class Puppy(db.Model):
     # __repr__ function is called when ever we try to print an object of a class (inside which the __repr__function is defined) or try to print a list of object etc.... 
     def __repr__(self):
         return f"Puppy {self.name} is {self.age} years old."
+
+with app.app_context():
+    # this line only creates an empty puppy table, with column title using class attributes in it
+    # first db.create_all() should be done, then only object instanciation should be done
+    db.create_all()  

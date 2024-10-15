@@ -3,82 +3,86 @@ from BasicModelApp import db, Puppy, app
 sam = Puppy('Sammy',3)
 frank = Puppy('Frankie',4)
 
-# accesses  the auto created instance attribute (do not access it from table Puppy)
+
+
+"""accesses the auto created instance attribute that is only available in local memory when added and commited to db
+   and do not access it from table Puppy"""
 print(sam.id)                   # print None
-# accesses  instance attributes (do not access it from table Puppy)
+"""accesses the instance attribute that is available in local memory becaues of __init__
+   and do not access it from table Puppy"""
 print(sam.name)                 # print Sammy
 print(sam.age)                  # print 3
 
-# accesses  the auto created instance attribute (do not access it from table Puppy)
+
+"""accesses the auto created instance attribute that is only available in local memory when added and commited to db
+   and do not access it from table Puppy"""
 print(frank.id)                 # print None
-# accesses  instance attributes (do not access it from table Puppy)
+"""accesses the instance attribute that is available in local memory becaues of __init__
+   and do not access it from table Puppy"""
 print(frank.name)               # print Frankie
 print(frank.age)                # print 4
 
-with app.app_context():
-    # this line creates the data.sqlite file 
-    # this only creates the db and put an empty puppy table with column title using class attributes in it
-    # first db.create_all() should be done, then only object instanciation should be done
-    db.create_all()  
 
-    # these object declaration ensures the data that are about to be added in the respective table in db
-    # session add and commit is must to see the contents in tables just creation of objects doesn't add the data in table row wise
-    # no need to pass value for primary column of any table, it is automatically created
+
+with app.app_context():
+    
+    """these object declaration ensures the data that are about to be added in the respective table in db
+       session add and commit is must to see the contents in tables just creation of objects doesn't add the 
+       data in table row wise and no need to pass value for primary column of any table, it is automatically created"""
     sam = Puppy('Sammy',3)
     frank = Puppy('Frankie',4)
 
-    # still data not added in puppy table
-    # accesses  the auto created instance attribute (do not access it from table Puppy)
+
+    """accesses the auto created instance attribute that is only available in local memory when added and commited to db
+    and do not access it from table Puppy"""
     print(sam.id)                   # print None
-    # accesses  instance attributes (do not access it from table Puppy)
+    """accesses the instance attribute that is available in local memory becaues of __init__
+    and do not access it from table Puppy"""
     print(sam.name)                 # print Sammy
     print(sam.age)                  # print 3
 
-    # still data not added in puppy table
-    # accesses  the auto created instance attribute (do not access it from table Puppy)
-    print(frank.id)                 # print None
-    # accesses  instance attributes (do not access it from table Puppy)
-    print(frank.name)               # print Frankie
-    print(frank.age)                # print 4  
 
-    # Ids will get created automatically once we add these entries to the DB
-    db.session.add_all([sam,frank])           # again and again running session add and commit, adds the data in table again and again  
+    """accesses the auto created instance attribute that is only available in local memory when added and commited to db
+    and do not access it from table Puppy"""
+    print(frank.id)                 # print None
+    """accesses the instance attribute that is available in local memory becaues of __init__
+    and do not access it from table Puppy"""
+    print(frank.name)               # print Frankie
+    print(frank.age)                # print 4
+
     
-    # Alternative for individual additions:
+    """again and again running session add and commit, adds the data in table again and again"""
+    db.session.add_all([sam,frank])             
+    
+    """Alternative for individual additions"""
     # db.session.add(sam)
     # db.session.add(frank)
 
-    # Now save it to the database
-    db.session.commit()                       # again and again running session add and commit, adds the data in table again and again
+    """Now save it to the database"""
+    db.session.commit()                       
+                                                               
+    ###########################################################################################                                                           
 
-
-    # Class Attribute: The id defined in the Puppy class is a SQLAlchemy column descriptor.
-    ######################################################################################################################################
-    # Instance Attribute Initialization:
-    # When you create an instance of the Puppy class (e.g., sam = Puppy('Sammy', 3)), SQLAlchemy sets up the instance with the attributes defined in the model, including id, name, and age.
-    # At this point, sam.id is initialized but not assigned a specific value, so it is None.
-    ######################################################################################################################################
-    # Adding and Committing to the Database:
-    # When you add the instance to the session (db.session.add(sam)) and commit the transaction (db.session.commit()), SQLAlchemy assigns a value to the instance attribute id based on the primary key generated by the database.
-    # This means sam.id gets assigned a unique value (e.g., 1), which effectively masks the initial None value.    
-    ######################################################################################################################################              
-    # when we re-run this page without the session add & commit, no masking occurs                                               
-    # in that case when we try to print id, None will be printed                                                                 
-
-
-
-    # now data is added in puppy table
-    # accesses  the auto created instance attribute that is available in local memory(do not access it from table Puppy)
-    # It is always better to print or access any data from db that is already available in db instead of using it from local memory
+    """now data is added in puppy table
+       It is always better to print or access any data from db that is already available in db instead of using it from local memory"""
+    
+    ###########################################################################################
+    
+    """accesses the auto created instance attribute that is available in local memory bcoz data added and commited to db
+    and do not access it from table Puppy"""
     print(sam.id)                   # print 1
-    # accesses  instance attributes (do not access it from table Puppy)
+    """accesses the instance attribute that is available in local memory becaues of __init__
+    and do not access it from table Puppy"""
     print(sam.name)                 # print Sammy
     print(sam.age)                  # print 3
 
-    # now data is added in puppy table
-    # accesses  the auto created instance attribute that is available in local memory(do not access it from table Puppy)
-    # It is always better to print or access any data from db that is already available in db instead of using it from local memory
+
+    """accesses the auto created instance attribute that is available in local memory bcoz data added and commited to db
+    and do not access it from table Puppy"""
     print(frank.id)                 # print 2
-    # accesses  instance attributes (do not access it from table Puppy)
+    """accesses the instance attribute that is available in local memory becaues of __init__
+    and do not access it from table Puppy"""
     print(frank.name)               # print Frankie
-    print(frank.age)                # print 4  
+    print(frank.age)                # print 4
+    
+
