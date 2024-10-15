@@ -42,7 +42,7 @@ with app.app_context():
     # Grab by id    
     puppy_one = Puppy.query.get(1) # puppy_one = Puppy(name='Sammy', age=3)
     print("----------->", puppy_one)
-    print("----------->", puppy_one.name)
+    print("----------->", puppy_one.name) # this is accessing the local memory after db data is queried
 
     # Filters
     puppy_sam = Puppy.query.filter_by(name='Rufus') # here filtering only occurs
