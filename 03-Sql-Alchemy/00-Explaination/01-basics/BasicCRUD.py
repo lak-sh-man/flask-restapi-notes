@@ -1,4 +1,4 @@
-# just like printing the class attributes or instance attributes doesn't fetch the data from table
+# just like printing the class attributes or instance attributes doesn't fetch the data from table, it may only print the available data in local memory
 # there are special methods available to access data from table in db
 
 # NOTE : Usually after querying the data with special methods from data base, they are made to override the instance attributes (etc) inside class to print it anywhere

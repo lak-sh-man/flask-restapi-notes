@@ -68,14 +68,16 @@ with app.app_context():
 
 
     # now data is added in puppy table
-    # accesses  the auto created instance attribute (do not access it from table Puppy)
+    # accesses  the auto created instance attribute that is available in local memory(do not access it from table Puppy)
+    # It is always better to print or access any data from db that is already available in db instead of using it from local memory
     print(sam.id)                   # print 1
     # accesses  instance attributes (do not access it from table Puppy)
     print(sam.name)                 # print Sammy
     print(sam.age)                  # print 3
 
     # now data is added in puppy table
-    # accesses  the auto created instance attribute (do not access it from table Puppy)
+    # accesses  the auto created instance attribute that is available in local memory(do not access it from table Puppy)
+    # It is always better to print or access any data from db that is already available in db instead of using it from local memory
     print(frank.id)                 # print 2
     # accesses  instance attributes (do not access it from table Puppy)
     print(frank.name)               # print Frankie
