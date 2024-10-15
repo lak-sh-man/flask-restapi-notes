@@ -15,7 +15,7 @@ from BasicModelApp import db, Puppy, app
 with app.app_context():
     # update
     first_puppy = Puppy.query.get(1)
-    first_puppy.age = 10
+    first_puppy.age = 10            # Here mapping occurs 
     db.session.add(first_puppy)
     db.session.commit()
 
