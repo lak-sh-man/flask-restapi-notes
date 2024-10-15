@@ -19,6 +19,14 @@ with app.app_context():
     # Also lots of executor options
     # all(), first(), get(), count(), paginate()
 
+    """What here happened is, data are queried from db and not used from local memory
+       Now queried data are then disected and then printed from local memory
+       
+       we can see after "all_puppies = Puppy.query.all()" now db is queried and data is sent to us 
+       as a list, now when we try to print "all_puppies" each object is read and then __init__() 
+       is used to have the data in local memory, now that local memory data is used by __repr__()
+       to print in the terminal"""
+    
     all_puppies = Puppy.query.all() # .all() returns a list  
                                     # fetches all rows from the puppies table.
                                     # SQLAlchemy creates Puppy objects for each row under class puppy
@@ -37,7 +45,7 @@ with app.app_context():
     print("----------->", puppy_one.name)
 
     # Filters
-    puppy_sam = Puppy.query.filter_by(name='Frankie') # here filtering only occurs
+    puppy_sam = Puppy.query.filter_by(name='Rufus') # here filtering only occurs
     print("----------->", puppy_sam)                  # this prints the SQL code
     print("----------->", puppy_sam.all())            # .all() returns a list of filtered query
                                                       # puppy_sam = [ Puppy(name='Frankie', age=4) ] 
