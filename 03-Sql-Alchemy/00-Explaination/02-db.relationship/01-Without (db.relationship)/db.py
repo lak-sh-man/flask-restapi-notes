@@ -33,5 +33,6 @@ class ItemModel(db.Model):
         self.price = price
         self.store_id = store_id
 
-
+with app.app_context():
+    db.create_all() # this creates the sqlite file first of all for us to later add and commit data 
 
