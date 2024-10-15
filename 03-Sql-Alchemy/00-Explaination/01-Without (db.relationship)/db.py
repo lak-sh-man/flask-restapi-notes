@@ -34,15 +34,4 @@ class ItemModel(db.Model):
         self.store_id = store_id
 
 
-with app.app_context():
-    my_item = ItemModel('Pen',50)
-    db.session.add(my_item)
-    db.session.commit()
-    
-    
-    item_1 = ItemModel.query.get(1)  # Get an item with ID 1
 
-
-    # Without relationship, you need to manually query the store
-    store = StoreModel.query.get(item_1.store_id)  # Find the store using the store_id
-    print(f"Item: {item_1.name}, Store: {store.name}")  # Manually accessing the store
