@@ -16,8 +16,7 @@ frank = Puppy(name='Frankie', age=4)
 
 ## ⚠️ EXPLANATION-2
 - If we don’t define an __init__() method, the class will use the default Python constructor, which only expects one argument **self**
-- Because of this, in this case when we send this data, it says <br> 
-**ERROR : Only one argument is expected, but 2 are sent**
+- Because of this, in this case when we send this data, it says **ERROR : Only one argument is expected, but 2 are sent**
   
 ```python
 sam = Puppy('Sammy', 3)
