@@ -29,14 +29,7 @@ class Puppy(db.Model):
     print(id)      # prints (no name)
     print(name)    # prints (no name)
     print(age)     # prints (no name)
- 
-    def __init__(self,name,age):
-        self.name = name
-        self.age = age
 
-    # __repr__ function is called when ever we try to print an object of a class (inside which the __repr__function is defined) or try to print a list of object etc.... 
-    def __repr__(self):
-        return f"Puppy {self.name} is {self.age} years old."
 
 with app.app_context():
     # this line only creates an empty puppy table, with column title using class attributes in it

@@ -1,7 +1,7 @@
 from BasicModelApp import db, Puppy, app
 
-sam = Puppy('Sammy',3)
-frank = Puppy('Frankie',4)
+sam = Puppy(name='Sammy', age=3)
+frank = Puppy(name='Frankie', age=4)
 
 """For sam to come and access its instance attributes sam.name and sam.age, we defined __init__() method.
    But when sam tries to access its instance attribute sam.id, none will be printed because, id for each 
@@ -20,8 +20,8 @@ print(frank.age)                   # print 4
 
 with app.app_context():
     
-   sam = Puppy('Sammy',3)
-   frank = Puppy('Frankie',4)
+   sam = Puppy(name='Sammy', age=3)
+   frank = Puppy(name='Frankie', age=4)
 
    print(sam.id)                   # print None
    print(sam.name)                 # print Sammy
@@ -65,5 +65,3 @@ with app.app_context():
    print(frank.id)                 # print 2
    print(frank.name)               # print Frankie
    print(frank.age)                # print 4
-   
-
