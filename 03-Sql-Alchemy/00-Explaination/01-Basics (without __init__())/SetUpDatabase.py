@@ -1,7 +1,5 @@
 from BasicModelApp import db, Puppy, app
 
-# The objects are initiated with keyword arguments in it 
-# where no __init__ is available, so 
 sam = Puppy(name='Sammy', age=3)
 frank = Puppy(name='Frankie', age=4)
 
