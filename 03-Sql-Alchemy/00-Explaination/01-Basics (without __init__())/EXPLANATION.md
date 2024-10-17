@@ -24,8 +24,7 @@ frank = Puppy('Frankie', 4)
     - But when sam tries to access its instance attribute sam.id, none will be printed because, id for each 
     initiated object is a primary key and can only be created after adding and commiting the data and they are auto incremental 
     - Which means after adding and commiting the data only, SQLAlchemy internally assigns the keyword arguments to the respective attributes **self.id** behind the scenes
-    - Where this **self.id** is stored in local memory and stays as long as the file is running where adding and commiting is happening
-    - So **id** can be only it is only created and accessed after adding and commiting the instantiated objects to the db 
+    - Where this **self.id** is stored in local memory and stays as long as the file is running 
   
 ```python
 print(sam.id)                      # print None
