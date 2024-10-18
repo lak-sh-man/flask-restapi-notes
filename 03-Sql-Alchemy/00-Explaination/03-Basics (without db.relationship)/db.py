@@ -16,13 +16,17 @@ class StoreModel(db.Model):
     __tablename__ = "stores"
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), unique=True, nullable=False)
-
+    """1) when already existing store name is tried to be inserted, error occurs when unique = True is given,
+          which means duplicate values cannot be stored under this column
+       2) Remember there is no unique=Flase, either we can give unique=True or we should not even mention it"""
+    name = db.Column(db.String(80), nullable=False) 
 
 class ItemModel(db.Model):
     __tablename__ = "items"
 
     id = db.Column(db.Integer, primary_key=True)
+    """Here for name and price no unique = True is given because different stores can have 
+       same item, under same name, under same price which means duplicate values can be stored under this column"""
     name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Float(precision=2), nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)

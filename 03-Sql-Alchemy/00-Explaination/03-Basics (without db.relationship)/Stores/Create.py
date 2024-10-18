@@ -14,9 +14,14 @@ with app.app_context():
     store_1 = StoreModel(name="SS")
     store_2 = StoreModel(name="Cheap & Best")
     
+    print(store_1.id)
+    
     db.session.add(store_1)
     db.session.add(store_2)
     
     db.session.commit()
+    
+    
+    print(store_1.id)
 
     

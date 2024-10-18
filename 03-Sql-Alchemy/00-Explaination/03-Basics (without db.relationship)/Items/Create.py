@@ -10,6 +10,8 @@ sys.path.insert(0, parent_dir)
 from db import db, ItemModel, app
 from Stores.Create import store_1, store_2
 
+print(store_1.name)
+
 with app.app_context():
     # Create 
     item_1 = ItemModel('Biriyani',230,store_1.id)
