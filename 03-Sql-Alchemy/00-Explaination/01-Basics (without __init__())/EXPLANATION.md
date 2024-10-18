@@ -19,12 +19,11 @@ frank = Puppy('Frankie', 4)
 ```
 
 ## ⚠️ EXPLANATION-3
-- After declaring the object, before adding & commiting the data, <br>
-    - For sam to come and access its instance attributes sam.name and sam.age, these data are previously read, so they can be printed
-    - But when sam tries to access its instance attribute sam.id, none will be printed because, id for each 
-    initiated object is a primary key and can only be created after adding and commiting the data and they are auto incremental 
-    - Which means after adding and commiting the data only, SQLAlchemy internally assigns the keyword arguments to the respective attributes **self.id** behind the scenes
-    - Where this **self.id** is stored in local memory and stays as long as the file is running 
+- For sam to come and access its instance attributes sam.name and sam.age, these data are previously read, so they can be printed
+- But when sam tries to access its instance attribute sam.id, none will be printed because, id for each 
+initiated object is a primary key and can only be created after adding and commiting the data and they are auto incremental 
+- Which means after adding and commiting the data only, SQLAlchemy internally assigns the keyword arguments to the respective attributes **self.id** behind the scenes
+- Where this **self.id** is stored in local memory and stays as long as the file is running 
   
 ```python
 print(sam.id)                      # print None
