@@ -1,8 +1,3 @@
-# Full docs: http://docs.sqlalchemy.org/en/latest/core/types.html
-# class indicates table names 
-# class attributes indicates column names 
-# each object Instantiation indicates row wise contents 
-
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -19,7 +14,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 class Puppy(db.Model):
-
     __tablename__ = 'puppies'  # If you don't provide this, the default table name will be the class name
     
     id = db.Column(db.Integer,primary_key=True) # Primary Key column, unique id for each puppy
@@ -29,7 +23,10 @@ class Puppy(db.Model):
     print(id)      # prints (no name)
     print(name)    # prints (no name)
     print(age)     # prints (no name)
-
+    
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
 
 with app.app_context():
     # this line only creates an empty puppy table, with column title using class attributes in it
