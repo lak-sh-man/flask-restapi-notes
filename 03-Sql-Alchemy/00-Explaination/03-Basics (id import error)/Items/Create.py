@@ -7,7 +7,7 @@ parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 # Add the parent directory to the system path
 sys.path.insert(0, parent_dir)
 
-from db import db, ItemModel, app
+from BasicModelApp import db, ItemModel, app
 from Stores.Create import store_1, store_2
 
 with app.app_context():

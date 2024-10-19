@@ -1,8 +1,3 @@
-# Full docs: http://docs.sqlalchemy.org/en/latest/core/types.html
-# class indicates table names 
-# class attributes indicates column names 
-# object indicates row wise contents 
-
 import os
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
@@ -36,3 +31,8 @@ class Puppy(db.Model):
     # __repr__ function is called when ever we try to print an object of a class (inside which the __repr__function is defined) or try to print a list of object etc.... 
     def __repr__(self):
         return f"Puppy {self.name} is {self.age} years old."
+
+with app.app_context():
+    # this line only creates an empty puppy table, with column title using class attributes in it
+    # first db.create_all() should be done, then only object Instantiation should be done
+    db.create_all()  
