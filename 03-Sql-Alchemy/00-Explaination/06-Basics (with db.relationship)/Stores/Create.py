@@ -19,10 +19,3 @@ with app.app_context():
     
     db.session.commit()
     
-    """If the print statements are removed, it's possible that the store objects (store_1 and store_2) 
-       are not being used after the commit(), so Python might garbage collect the objects before 
-       Items/Create.py is run"""
-    
-    print(store_1.id)
-    print(store_2.id)
-    
