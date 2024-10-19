@@ -1,0 +1,18 @@
+primary key - every table (class or Model) has a column with unique id numbers 
+foreign key - foreign key column in a table is nothing but a reference of primary key column of another table
+________________________________________________________________________
+
+TYPES : 
+1) one to one relation tables    - cust_1  --------->  ph_numb_1
+
+2) one to many relation tables   - cust_1  --------->  order_1
+                                               \---->  order_2
+
+1) many to many relation tables  - cust_1  <---\/--->  book_1_bought
+                                   cust_2  <---/\--->  book_2_bought
+
+________________________________________________________________________
+
+
+Database   - A collection of organized data and objects, broader in scope, and managed by a DBMS.
+Table      - A specific structure within a database for organizing data into rows and columns, narrower in scope
