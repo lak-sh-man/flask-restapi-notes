@@ -20,7 +20,6 @@ class StoreModel(db.Model):
           which means duplicate values cannot be stored under this column
        2) Remember there is no unique=Flase, either we can give unique=True or we should not even mention it"""
     name = db.Column(db.String(80), nullable=False) 
-    items = db.relationship("ItemModel", back_populates="store") 
 
 class ItemModel(db.Model):
     __tablename__ = "items"
@@ -31,7 +30,6 @@ class ItemModel(db.Model):
     name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Float(precision=2), nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
-    store = db.relationship("StoreModel", back_populates="items")
 
 
     def __init__(self,name,price,store_id):
