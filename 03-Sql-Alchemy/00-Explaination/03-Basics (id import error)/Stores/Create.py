@@ -15,6 +15,7 @@ with app.app_context():
     store_2 = StoreModel(name="Cheap & Best")
     
     print(store_1.id)
+    print(store_2.id)
     
     db.session.add(store_1)
     db.session.add(store_2)
@@ -23,5 +24,5 @@ with app.app_context():
     
     
     print(store_1.id)
-
+    print(store_2.id)
     
