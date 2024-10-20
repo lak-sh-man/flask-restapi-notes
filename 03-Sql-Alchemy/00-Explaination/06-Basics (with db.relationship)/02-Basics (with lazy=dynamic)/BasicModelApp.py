@@ -20,7 +20,8 @@ class StoreModel(db.Model):
           which means duplicate values cannot be stored under this column
        2) Remember there is no unique=Flase, either we can give unique=True or we should not even mention it"""
     name = db.Column(db.String(80), nullable=False) 
-    items = db.relationship("ItemModel", back_populates="store") 
+    items = db.relationship("ItemModel", back_populates="store", lazy='dynamic') # when nothing is mentioned, default lazy is "select"
+                                                                                 # lazy='dynamic' can be given on the side of ONE-->MANY relationship
 
 class ItemModel(db.Model):
     __tablename__ = "items"
@@ -31,8 +32,8 @@ class ItemModel(db.Model):
     name = db.Column(db.String(80), nullable=False)
     price = db.Column(db.Float(precision=2), nullable=False)
     store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
-    store = db.relationship("StoreModel", back_populates="items")
-
+    store = db.relationship("StoreModel", back_populates="items") # lazy='dynamic' cannot be given on the side of MANY-->ONE relationship
+                                                                  # lazy='dynamic' cannot be given for ONE-TO-ONE relationship on any side
 
     def __init__(self,name,price,store_id):
         self.name = name

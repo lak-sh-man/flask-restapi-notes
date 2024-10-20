@@ -15,7 +15,13 @@ with app.app_context():
 
     # Access the related store directly using the relationship
     # store = StoreModel.query.get(item.store_id) ------> It is being alternated
-    store = item.store # provides the single StoreModel objects that matches the id of item 2
+    store = item.store # returns a sql query, not a StoreModel object
+
+    try:
+        # Attempt to use it like a query (which is incorrect)
+        store = store.all()  # This will throw an error since it's not a collection
+    except Exception as e:
+        print(f"Error: {e}")
 
     print(f"Item: {item.name}, Price: {item.price}")
     print(f"Store: {store.name}")
