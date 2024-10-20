@@ -19,3 +19,5 @@ with app.app_context():
 
     print(f"Item: {item.name}, Price: {item.price}")
     print(f"Store: {store.name}")
+                # OR
+    print(f"Store: {item.store.name}") # This is just an another way to call without using "store = item.store"
