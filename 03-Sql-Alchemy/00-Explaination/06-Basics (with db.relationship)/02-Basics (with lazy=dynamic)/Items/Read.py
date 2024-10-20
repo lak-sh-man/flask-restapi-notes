@@ -15,7 +15,7 @@ with app.app_context():
 
     # Access the related store directly using the relationship
     # store = StoreModel.query.get(item.store_id) ------> It is being alternated
-    store = item.store # returns a sql query, not a StoreModel object
+    store = item.store # provides the single StoreModel objects that matches the id of item 2
 
     try:
         # Attempt to use it like a query (which is incorrect)
