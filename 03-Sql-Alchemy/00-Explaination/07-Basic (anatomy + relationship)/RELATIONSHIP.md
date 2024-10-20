@@ -13,7 +13,7 @@
             - It uses the ForeignKey to understand how the tables are related, but the parameters in relationship() <br>
             such as back_populates, uselist etc, influence the type of relationship
 
-- ## ⚠️ ONE-TO-ONE 
+## ⚠️ ONE-TO-ONE 
 - ForeignKey still defines the link, but you need to add **uselist=False** in the relationship() on the **parent side** to indicate that only one child record can be related
 
 ```python
