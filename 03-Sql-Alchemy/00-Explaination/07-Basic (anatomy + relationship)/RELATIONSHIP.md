@@ -1,17 +1,16 @@
 ## ⚠️ RELATIONSHIP
 - In SQLAlchemy, it is a combination of both the **ForeignKey()** and the **relationship()** that determines the type of relationship
-    
-    - ### 1. KEY ELEMENTS
-        - #### 1.1. FOREIGNKEY()
-            - The ForeignKey in the child table defines the basic link between two tables
-            - It indicates that the value in one column of the child table refers to a row in the parent table
-            - However, on its own, a ForeignKey doesn't specify the type of relationship 
-            - It just establishes a reference between two tables
 
-        - #### 1.2. RELATIONSHIP()
-            - The relationship() function defines the direction and nature of the relationship
-            - It uses the ForeignKey to understand how the tables are related, but the parameters in relationship() <br>
-            such as back_populates, uselist etc, influence the type of relationship
+    - ### 1. FOREIGNKEY()
+        - The ForeignKey in the child table defines the basic link between two tables
+        - It indicates that the value in one column of the child table refers to a row in the parent table
+        - However, on its own, a ForeignKey doesn't specify the type of relationship 
+        - It just establishes a reference between two tables
+
+    - ### 1. RELATIONSHIP()
+        - The relationship() function defines the direction and nature of the relationship
+        - It uses the ForeignKey to understand how the tables are related, but the parameters in relationship() <br>
+        such as back_populates, uselist etc, influence the type of relationship
 
 
 
