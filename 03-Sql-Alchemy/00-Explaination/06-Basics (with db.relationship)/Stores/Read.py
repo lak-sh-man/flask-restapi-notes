@@ -14,6 +14,7 @@ with app.app_context():
     store = StoreModel.query.get(1)  # Get store with id=1
 
     # Access the related items using the relationship
+    # items = ItemModel.query.filter_by(store_id=store.id).all() ------> It is being alternated
     items = store.items
 
     print(f"Store: {store.name}")
