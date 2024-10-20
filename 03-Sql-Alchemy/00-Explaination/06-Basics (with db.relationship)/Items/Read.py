@@ -15,7 +15,7 @@ with app.app_context():
 
     # Access the related store directly using the relationship
     # store = StoreModel.query.get(item.store_id) ------> It is being alternated
-    store = item.store
+    store = item.store # provides the single StoreModel objects that matches the id of item 2
 
     print(f"Item: {item.name}, Price: {item.price}")
     print(f"Store: {store.name}")

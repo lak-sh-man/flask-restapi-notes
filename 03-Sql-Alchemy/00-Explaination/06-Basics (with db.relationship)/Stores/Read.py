@@ -15,7 +15,7 @@ with app.app_context():
 
     # Access the related items using the relationship
     # items = ItemModel.query.filter_by(store_id=store.id).all() ------> It is being alternated
-    items = store.items
+    items = store.items # provides the list of ItemModel objects that matches the id of store 1
 
     print(f"Store: {store.name}")
     for item in items:
