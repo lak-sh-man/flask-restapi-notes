@@ -7,18 +7,16 @@
         - However, on its own, a ForeignKey doesn't specify the type of relationship 
         - It just establishes a reference between two tables
 
-            - #### 1.1. PARENT & CHILD TABLE
-                - There can be infinite tables, where each table can be both a parent table and a child table or can be either one of them
-                - Now taking only a pair of table, Among/wrt them both cannot be a parent table & both cannot be a child table
-                - Among/wrt them, only one table can be a parent and another can be a child
-                - Among/wrt them, the one with **ForeignKey()** holding the other table name is the child and the other without is the parent
-
     - ### 1. RELATIONSHIP()
         - The relationship() function defines the direction and nature of the relationship
         - It uses the ForeignKey to understand how the tables are related, but the parameters in relationship() <br>
         such as back_populates, uselist etc, influence the type of relationship
 
-
+## ⚠️ PARENT & CHILD TABLE
+- There can be infinite tables, where each table can be both a parent table and a child table or can be either one of them
+- Now taking only a pair of table, Among/wrt them both cannot be a parent table & both cannot be a child table
+- Among/wrt them, only one table can be a parent and another can be a child
+- Among/wrt them, the one with **ForeignKey()** holding the other table name is the child and the other without is the parent
 
 ## ⚠️ ONE-TO-ONE 
 - ForeignKey still defines the link, but you need to add **uselist=False** in the relationship() on the **parent side** to indicate that only one child record can be related
@@ -29,16 +27,32 @@
 ```python
 class StoreModel(db.Model):
     __tablename__ = "stores"
+
     id = db.Column(db.Integer, primary_key=True)
-    items = db.relationship("ItemModel", uselist=False, back_populates="store")  
+    name = db.Column(db.String(80), nullable=False) 
+    items = db.relationship("ItemModel", uselist=False, back_populates="store") 
 
 class ItemModel(db.Model):
     __tablename__ = "items"
+
     id = db.Column(db.Integer, primary_key=True)
-    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"))  # ForeignKey
+    name = db.Column(db.String(80), nullable=False)
+    price = db.Column(db.Float(precision=2), nullable=False)
+    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
     store = db.relationship("StoreModel", back_populates="items")
 ```
 
+| id       | name                  | 
+| -------- | --------------------- | 
+| 1        | SS                    | 
+| 2        | Cheap And Beast       | 
+| 3        | Anandham              | 
+
+| id       | name                  | price    | store_id              | 
+| -------- | --------------------- | -------- | --------------------- | 
+| 1        | Biriyni               | 240      | 1                     | 
+| 2        | Chicken Manchurian    | 140      | 2                     | 
+| 3        | Parotta               | 15       | 3                     | 
 
 
 ## ⚠️ ONE-TO-MANY 
