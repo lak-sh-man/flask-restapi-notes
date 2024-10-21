@@ -1,10 +1,15 @@
+import os
 from flask import Flask
 from flask_smorest import Api
+
+from db import db
+import models
 
 from resources.item import blp as ItemBlueprint
 from resources.store import blp as StoreBlueprint
 
-
+# This grabs our directory
+basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__)
 
 app.config["PROPAGATE_EXCEPTIONS"] = True
@@ -14,8 +19,16 @@ app.config["OPENAPI_VERSION"] = "3.0.3"
 app.config["OPENAPI_URL_PREFIX"] = "/"
 app.config["OPENAPI_SWAGGER_UI_PATH"] = "/swagger-ui"
 app.config["OPENAPI_SWAGGER_UI_URL"] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config["PROPAGATE_EXCEPTIONS"] = True
+db.init_app(app)
 api = Api(app)
+
+with app.app_context():
+    # this line only creates an empty puppy table, with column title using class attributes in it
+    # first db.create_all() should be done, then only object Instantiation should be done
+    db.create_all()  
 
 api.register_blueprint(ItemBlueprint)
 api.register_blueprint(StoreBlueprint)
