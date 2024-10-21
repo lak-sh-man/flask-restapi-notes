@@ -42,6 +42,10 @@ class ItemModel(db.Model):
     store = db.relationship("StoreModel", back_populates="items")
 ```
 
+:::tip ONE-TO-ONE
+One Store has one item, One item has one store
+:::
+
 | id       | name                  | 
 | -------- | --------------------- | 
 | 1        | SS                    | 
