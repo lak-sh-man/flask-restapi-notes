@@ -48,7 +48,7 @@ class ItemModel(db.Model):
 | id       | name                  | 
 | -------- | --------------------- | 
 | 1        | SS                    | 
-| 2        | Cheap And Beast       | 
+| 2        | Cheap And Best        | 
 | 3        | Anandham              | 
 
 | id       | name                  | price    | store_id              | 
@@ -89,7 +89,7 @@ class ItemModel(db.Model):
 | id       | name                  | 
 | -------- | --------------------- | 
 | 1        | SS                    | 
-| 2        | Cheap And Beast       | 
+| 2        | Cheap And Best        | 
 | 3        | Anandham              | 
 
 | id       | name                  | price    | store_id              | 
@@ -119,15 +119,45 @@ ThirdTable = db.Table(
 class StoreModel(db.Model):
     __tablename__ = "stores"
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
     items = db.relationship("ItemModel", secondary=ThirdTable, back_populates="store") 
 
 class ItemModel(db.Model):
     __tablename__ = "items"
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    price = db.Column(db.Float(precision=2), nullable=False)
     store = db.relationship("StoreModel", secondary=ThirdTable, back_populates="items")
 ```
 
+`MANY-TO-MANY | One Store has many item, Each One item has many store`
+
+
+| id       | name                  | 
+| -------- | --------------------- | 
+| 1        | SS                    | 
+| 2        | Cheap And Best        | 
+| 3        | Anandham              | 
+
+| id       | name                  | 
+| -------- | --------------------- |  
+| 1        | Biriyani              |  
+| 2        | Chicken Manchurian    |  
+| 3        | Parotta               | 
+| 4        | Empty                 | 
+
+| store_id | item_id               | price    | 
+| -------- | --------------------- | -------- |  
+| 1        | 1                     | 240      |  
+| 1        | 3                     | 25       |  
+| 2        | 1                     | 120      |  
+| 2        | 2                     | 140      | 
+| 3        | 3                     | 15       | 
+| 3        | 4                     | 50       | 
+ 
+
 ## 🔴 NOTE
 - ForeignKey() is required to link tables, but relationship() defines the nature of how tables interact with each other
+
 ![SQL-RELATIONSHIP Image](./SQL-RELATIONSHIP.jpg)
 
