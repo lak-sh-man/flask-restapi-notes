@@ -50,7 +50,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"name\" : \"lakshman chicken manchurian kadai\"}",
+							"raw": "{\"name\" : \"Cheap & Best\"}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -80,7 +80,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/store/4e6b1d87a78e43708b6d331be9f26325",
+							"raw": "http://127.0.0.1:5000/store/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -91,7 +91,7 @@
 							"port": "5000",
 							"path": [
 								"store",
-								"4e6b1d87a78e43708b6d331be9f26325"
+								"2"
 							]
 						}
 					},
@@ -103,7 +103,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/store/25b685a44a50457c97611f6bac0a69d2",
+							"raw": "http://127.0.0.1:5000/store/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -114,7 +114,7 @@
 							"port": "5000",
 							"path": [
 								"store",
-								"25b685a44a50457c97611f6bac0a69d2"
+								"1"
 							]
 						}
 					},
@@ -166,7 +166,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"store_id\": \"25b685a44a50457c97611f6bac0a69d2\",\r\n    \"name\": \"bike\",\r\n    \"price\": 5022\r\n}",
+							"raw": "{\r\n    \"name\": \"Beef Empty\",\r\n    \"price\": 80,\r\n    \"store_id\": \"2\"   \r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -208,7 +208,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/5fcb530d1f044551a61669ff7b40f33f",
+							"raw": "http://127.0.0.1:5000/item/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -219,7 +219,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"5fcb530d1f044551a61669ff7b40f33f"
+								"2"
 							]
 						}
 					},
@@ -231,7 +231,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/5fcb530d1f044551a61669ff7b40f33f",
+							"raw": "http://127.0.0.1:5000/item/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -242,7 +242,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"5fcb530d1f044551a61669ff7b40f33f"
+								"1"
 							]
 						}
 					},
@@ -255,7 +255,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"remote 2\",\r\n    \"price\": 500\r\n}",
+							"raw": "{\r\n    \"name\": \"Chicken Empty\",\r\n    \"price\": 100\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -263,7 +263,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/5fcb530d1f044551a61669ff7b40f33f",
+							"raw": "http://127.0.0.1:5000/item/2",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -274,7 +274,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"5fcb530d1f044551a61669ff7b40f33f"
+								"2"
 							]
 						}
 					},
