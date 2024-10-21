@@ -42,7 +42,7 @@ class ItemModel(db.Model):
     store = db.relationship("StoreModel", back_populates="items")
 ```
 
-`ONE-TO-ONE | One Store has one item, One item has one store`
+`ONE-TO-ONE | One Store has one item, Each One item has one store`
 
 
 | id       | name                  | 
@@ -53,7 +53,7 @@ class ItemModel(db.Model):
 
 | id       | name                  | price    | store_id              | 
 | -------- | --------------------- | -------- | --------------------- | 
-| 1        | Biriyni               | 240      | 1                     | 
+| 1        | Biriyai               | 240      | 1                     | 
 | 2        | Chicken Manchurian    | 140      | 2                     | 
 | 3        | Parotta               | 15       | 3                     | 
 
@@ -68,16 +68,38 @@ class ItemModel(db.Model):
 ```python
 class StoreModel(db.Model):
     __tablename__ = "stores"
+
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False) 
     items = db.relationship("ItemModel", back_populates="store") 
 
 class ItemModel(db.Model):
     __tablename__ = "items"
+
     id = db.Column(db.Integer, primary_key=True)
-    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"))  # ForeignKey
+    name = db.Column(db.String(80), nullable=False)
+    price = db.Column(db.Float(precision=2), nullable=False)
+    store_id = db.Column(db.Integer, db.ForeignKey("stores.id"), nullable=False)
     store = db.relationship("StoreModel", back_populates="items")
 ```
 
+`ONE-TO-MANY | One Store has many item, Each One item has one store`
+
+
+| id       | name                  | 
+| -------- | --------------------- | 
+| 1        | SS                    | 
+| 2        | Cheap And Beast       | 
+| 3        | Anandham              | 
+
+| id       | name                  | price    | store_id              | 
+| -------- | --------------------- | -------- | --------------------- | 
+| 1        | Biriyani              | 240      | 1                     | 
+| 2        | Chicken Manchurian    | 140      | 2                     | 
+| 3        | Parotta               | 15       | 3                     | 
+| 4        | Parotta               | 25       | 1                     |
+| 5        | Biriyani              | 120      | 2                     |
+| 6        | Empty                 | 50       | 3                     |
 
 
 ## ⚠️ MANY-TO-MANY 
