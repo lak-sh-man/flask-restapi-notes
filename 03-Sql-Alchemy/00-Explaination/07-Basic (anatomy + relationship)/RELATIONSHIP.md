@@ -114,6 +114,7 @@ ThirdTable = db.Table(
                         'third_table',
                         db.Column('stores_id', db.Integer, db.ForeignKey('stores.id')), # ForeignKey
                         db.Column('items_id', db.Integer, db.ForeignKey('items.id'))    # ForeignKey
+                        db.Column('price', db.Float, nullable=False)  # Store-specific price
                      )
 
 class StoreModel(db.Model):
@@ -126,7 +127,6 @@ class ItemModel(db.Model):
     __tablename__ = "items"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80), nullable=False)
-    price = db.Column(db.Float(precision=2), nullable=False)
     store = db.relationship("StoreModel", secondary=ThirdTable, back_populates="items")
 ```
 
