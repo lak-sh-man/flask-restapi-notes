@@ -9,6 +9,9 @@ class PlainItemSchema(Schema):
 
 class PlainStoreSchema(Schema):
     id = fields.Str(dump_only=True)
+    """1) Fields that are not marked with 'dump_only' or 'load_only' will be included both when 
+          serializing (output) and deserializing (input)
+       2) The name field in your example doesn't have dump_only=True, so it's included by default in the response"""
     name = fields.Str(required=True)
 
 
@@ -30,3 +33,12 @@ class StoreSchema(PlainStoreSchema):
 
 """Serialization: Converting Python objects (like SQLAlchemy models) into a format that can be returned to the client, such as JSON"""
 """Deserialization: When data comes from the client, Marshmallow validates and converts the data into the expected format"""
+
+
+
+"""Those parameters with "required=True" can only be sent in an API request""" 
+"""Any other more or less will throw an error"""
+"""Before using this schema, we might have put if condition like "name" should be mustly sent, but more that  
+   unwanted data can also be sent""" 
+"""This schema also helps to validate the values to check if they are in defined datatypes 
+   that are sent in defined keys"""
