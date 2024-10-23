@@ -14,10 +14,6 @@ class PlainStoreSchema(Schema):
 
 class PlainTagSchema(Schema):
     id = fields.Str(dump_only=True)
-    """1) Fields that are not marked with 'dump_only' or 'load_only' will be included both when 
-          serializing (output) and deserializing (input)
-       2) The name field in your example doesn't have dump_only=True, so it's included by default in the response
-       3) 'name' is not given 'dump_only' but when we give 'required=True' it is automatically made dumpable"""
     name = fields.Str(required=True)
 
 
