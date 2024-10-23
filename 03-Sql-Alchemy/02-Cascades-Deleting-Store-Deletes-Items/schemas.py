@@ -26,7 +26,9 @@ class ItemSchema(PlainItemSchema):
 
 """1) The schema (StoreSchema) is responsible for transforming these stores (which are Python objects) 
       into a dictionary-like format (JSON or a Python dict)
-   2) The related items and tags are fetched by SQLAlchemy when Marshmallow accesses them as part of the schema
+   2) In your query, you only called StoreModel.query.all(), and yet, related items and tags for each store are being returned
+      This is due to the way SQLAlchemy and Marshmallow work together
+      The related items are fetched by SQLAlchemy when Marshmallow accesses them as part of the schema
       This happens even though you only queried the StoreModel, because the relationships are dynamically loaded when needed"""
 
 class StoreSchema(PlainStoreSchema):
