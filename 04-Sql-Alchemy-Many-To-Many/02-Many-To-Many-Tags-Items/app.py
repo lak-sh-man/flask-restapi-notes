@@ -7,6 +7,7 @@ import models
 
 from resources.item import blp as ItemBlueprint
 from resources.store import blp as StoreBlueprint
+from resources.tag import blp as TagBlueprint
 
 # This grabs our directory
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -32,6 +33,7 @@ with app.app_context():
 
 api.register_blueprint(ItemBlueprint)
 api.register_blueprint(StoreBlueprint)
+api.register_blueprint(TagBlueprint)
 
 if __name__ == '__main__':
     # app.run(debug=True, host='0.0.0.0', port=8000) 

@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "7272cbed-c0cc-45c0-a04f-5356277041cb",
-		"name": "02-Cascades-Deleting-Store-Deletes-Items",
+		"_postman_id": "b4182ec3-f045-48a5-9e2d-80744b54319d",
+		"name": "01-One-To-Many-Store-Tags",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "28705244"
 	},
@@ -208,7 +208,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://127.0.0.1:5000/item/2",
+							"raw": "http://127.0.0.1:5000/item/1",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -219,7 +219,7 @@
 							"port": "5000",
 							"path": [
 								"item",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -275,6 +275,115 @@
 							"path": [
 								"item",
 								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "http://127.0.0.1:5000/tag/<string:tag_id>",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/tag/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"tag",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/store/<string:store_id>/tag",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Food\"  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/store/1/tag",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store",
+								"1",
+								"tag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://127.0.0.1:5000/store/<string:store_id>/tag",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/store/1/tag",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"store",
+								"1",
+								"tag"
 							]
 						}
 					},
