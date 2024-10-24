@@ -1,9 +1,8 @@
 ## ⚠️ JWT - JSON WEB TOKEN 
-- The Flask app generates a JWT when a user logs in (with their username and password)
-- In the JWT, we'll store the user ID, The client then stores the JWT and sends it to us on every request
-- Because we can prove our app generated the JWT (through its signature), and we will receive the JWT with the user ID in every request, we can treat requests that include a JWT as "logged in"
+- The Flask app will generate a JWT when a user logs in with their username and password and we can prove our app generated the JWT through its signature 
+- Inside the JWT, we'll store the user ID and send it as a response where The client then stores the JWT and sends it to us on every request
+- Since the JWT includes the user ID inside it, when we receive a JWT we know who logged in to get the JWT and we can treat requests that include a JWT as "logged in"
 - example: if we want certain endpoints to only be accessible to logged-in users, all we do is require a JWT in them Since the client can only get a JWT after logging in, we know that including a JWT is proof that the client logged in successfully at some point in the past
-- Since the JWT includes the user ID inside it, when we receive a JWT we know who logged in to get the JWT
 
     - ### USE CASE
         - This is the most common scenario for using JWT, once the user is logged in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token 
