@@ -1,4 +1,4 @@
-## ⚠️ EXPLANATION-1
+## ⚠️ FLASK SMOREST & MARSHMALLOW
 - If we're using Flask-Smorest, it's highly recommended and almost essential to use Marshmallow because Flask-Smorest is designed to work closely with Marshmallow for serialization, deserialization, and validation of request and response data
 
     - ### SERIALIZATION and DESERIALIZATION
