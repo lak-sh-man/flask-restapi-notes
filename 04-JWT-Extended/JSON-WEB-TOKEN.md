@@ -29,3 +29,5 @@
 - **AUTHORIZATION**
     - Authorization is the process of verifying what the authenticated users have access to
     - example: me being an authenticated **user** couldn't be able to access the **admin** pages 
+
+![JWT Image](JWT.jpg)
